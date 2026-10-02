@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ilham Zakaria — Portfolio
 
-## Getting Started
+Landing page portfolio and project detail pages for a logo designer and brand identity designer. Built with Next.js (App Router), TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## Tech stack
+
+- Next.js 16 (App Router, Turbopack)
+- React 19 + TypeScript (strict)
+- Tailwind CSS v4
+- `next/font` (Geist Sans), `next/image`
+- `framer-motion` for the animated hero headline, `lucide-react` for icons
+- Section reveals use CSS + `IntersectionObserver` (no extra runtime).
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run start    # run the production build
+npm run lint     # ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Route | Description |
+|---|---|
+| `/` | Landing page with every section |
+| `/brand-identity/[slug]` | Full project detail page |
+| `not-found` | Styled 404 |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All detail pages are statically generated with `generateStaticParams` and get their own metadata with `generateMetadata`.
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/
+  layout.tsx                 Root layout: header, footer, metadata, JSON-LD
+  page.tsx                   Landing page section order
+  globals.css                Design tokens, typography, base styles
+  not-found.tsx              404 page
+  robots.ts                  robots.txt
+  sitemap.ts                 sitemap.xml
+  brand-identity/[slug]/     Project detail page
+components/
+  Header.tsx  Footer.tsx
+  sections/                  Hero, Profile, Skills, LogoGrid, BrandIdentityGrid, Contact
+  ui/                        SectionHeading, Reveal
+data/                        All editable content
+types/                       Shared types
+public/images/               Placeholder images
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Editing content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All copy lives in `data/`, so you never need to touch the components.
 
-## Deploy on Vercel
+- `data/site.ts` — name, role, hero headline (`headlineLines` renders one line per item), intro copy, email, socials, stats, profile photo path.
+- `data/logos.ts` — logo grid items.
+- `data/brands.ts` — brand identity projects and their detail page content.
+- `data/skills.ts` — the Tools and Design Skills lists.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Replacing images
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Drop your files into `public/images/` and point the data files at them.
+
+- Profile photo: `public/images/profile.jpg`, aspect ratio 4:6 (e.g. 800×1200). Referenced by `site.profile.image`.
+- Logos: `public/images/logos/logo-01.jpg` …, square 1:1 (e.g. 1200×1200). Transparent PNG or white background works best.
+- Brand projects: `public/images/brands/<slug>/cover.jpg`, 16:9 (e.g. 1920×1080), plus gallery files.
+- Social share image: `public/images/og.jpg`, 1200×630.
+
+Every image in the repo is currently a grey placeholder that prints its own ratio. Replace them with real work when ready. Optimize images with WebP/AVIF where possible; `next/image` serves modern formats automatically.
+
+## Adding a brand identity project
+
+1. Create a folder under `public/images/brands/<slug>/` and add a `cover.jpg` plus gallery images.
+2. Append a new object to the `brands` array in `data/brands.ts`. Set `gallery` entries with an optional `ratio` of `"16:9"`, `"1:1"`, `"4:5"`, or `"full"` (full width, 2:1).
+3. The detail page, sitemap entry, and previous/next navigation are generated automatically.
+
+## SEO and accessibility
+
+- Per-page metadata, Open Graph, and Twitter cards.
+- `sitemap.xml` and `robots.txt` are generated from `data/` (`app/sitemap.ts`, `app/robots.ts`).
+- JSON-LD `ProfessionalService` + `Person` is injected in the root layout.
+- Single `h1` per page, semantic landmarks, visible focus rings, and alt text on every image.
+- Animations respect `prefers-reduced-motion`.
+- The design is monochrome only: black, white, and neutral greys, sharp corners, no shadows or gradients.
+
+Update the placeholder domain before launch. `site.url` in `data/site.ts` feeds `metadataBase`, canonical URLs, the sitemap, robots, and JSON-LD.
+
+## Deploy to Vercel
+
+1. Push the repository to GitHub.
+2. Import it at [vercel.com/new](https://vercel.com/new). Vercel detects Next.js automatically.
+3. Set `site.url` in `data/site.ts` to the production domain, then deploy.
+
+## Assumptions
+
+- `site.url` is a placeholder (`https://ilhamzakaria.com`); update it for production.
+- Contact is email + WhatsApp + social links. The optional contact form is not implemented (marked phase 2 in the PRD).
+- Font is Geist Sans (the PRD allows Geist Sans or Inter).
+- Placeholder images are generated raster JPGs so `next/image`, blur handling, and Open Graph all work out of the box.
