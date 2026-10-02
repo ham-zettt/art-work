@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Adobe Photoshop icon">
+  <defs>
+    <linearGradient id="ps-bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#31A8FF"/>
+      <stop offset="100%" stop-color="#1E6DFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#101827"/>
+  <path d="M18 18.5h28v27H18z" fill="url(#ps-bg)" opacity="0.18"/>
+  <path d="M22 42.5c0-6.1 4.9-11 11-11 2.8 0 5.4.9 7.5 2.5V20.5H46v22.2c0 2.1-1.7 3.8-3.8 3.8h-18a3.8 3.8 0 0 1-3.8-3.8v-3.4h2.6v3.4c0 .7.6 1.3 1.3 1.3h18.1c.7 0 1.3-.6 1.3-1.3V25H35.7c-3.3 0-6 2.7-6 6v5.5c0 3.3 2.7 6 6 6h3.8v-3.4h-3.8a2.6 2.6 0 0 1-2.6-2.6v-5.5a2.6 2.6 0 0 1 2.6-2.6H38.6v12.6H22v-3.4Z" fill="#31A8FF"/>
+  <circle cx="31.5" cy="24.8" r="3.5" fill="#A7D8FF"/>
+</svg>

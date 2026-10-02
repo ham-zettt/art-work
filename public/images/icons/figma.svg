@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Figma icon">
+  <rect width="64" height="64" rx="14" fill="#111827"/>
+  <g fill="#fff">
+    <path d="M21 20.5c0-3.6 2.9-6.5 6.5-6.5H31v13h-3.5c-3.6 0-6.5-2.9-6.5-6.5Z" fill="#F24E1E"/>
+    <path d="M31 14h3.5c3.6 0 6.5 2.9 6.5 6.5S38.1 27 34.5 27H31V14Z" fill="#FF7262"/>
+    <path d="M31 27h3.5c3.6 0 6.5 2.9 6.5 6.5S38.1 40 34.5 40H31V27Z" fill="#A259FF"/>
+    <path d="M31 40h3.5c3.6 0 6.5 2.9 6.5 6.5S38.1 53 34.5 53H31V40Z" fill="#1ABCFE"/>
+    <path d="M21 34.5c0-3.6 2.9-6.5 6.5-6.5H31v13h-3.5c-3.6 0-6.5-2.9-6.5-6.5Z" fill="#0ACF83"/>
+    <path d="M21 20.5c0-3.6 2.9-6.5 6.5-6.5H31v13h-3.5c-3.6 0-6.5-2.9-6.5-6.5Z" fill="#F24E1E" opacity="0.9"/>
+  </g>
+</svg>

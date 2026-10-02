@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Procreate icon">
+  <rect width="64" height="64" rx="14" fill="#111827"/>
+  <path d="M21 42c0-8.2 6.6-15 14.8-15 7.9 0 14.2 6.8 14.2 15v2.5H21V42Zm8.8-20.5c0-3.8 3.1-7 7-7s7 3.2 7 7v2.1h-14v-2.1Z" fill="#2DE2B1"/>
+  <path d="M32.2 18.5c2.5 0 4.5 2 4.5 4.5v4.3c0 2.8-2.2 5.1-5 5.1-2.8 0-5-2.3-5-5.1v-4.3c0-2.5 2-4.5 4.5-4.5Z" fill="#F5F5F5" opacity="0.9"/>
+  <path d="M18.5 48h27v4h-27z" fill="#F6F7F8" opacity="0.8"/>
+</svg>
