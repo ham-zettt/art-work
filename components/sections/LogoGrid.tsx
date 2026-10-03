@@ -31,7 +31,7 @@ export function LogoGrid() {
 										alt={`${logo.title} logo`}
 										fill
 										sizes="(min-width: 640px) 33vw, 100vw"
-										className="object-contain p-16 grayscale transition-[filter,transform,translate,scale,rotate] duration-500 ease-expo motion-safe:group-hover:scale-[1.05] group-hover:grayscale-0 md:p-20"
+										className="object-contain p-32 sm:p-12 md:p-30 grayscale transition-[filter,transform,translate,scale,rotate] duration-500 ease-expo motion-safe:group-hover:scale-[1.05] group-hover:grayscale-0"
 									/>
 								</div>
 								<div className="flex flex-1 flex-col gap-3 border-t border-line p-6 md:min-h-[150px] md:p-8">

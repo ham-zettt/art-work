@@ -10,10 +10,10 @@ export const site = {
 	heroSubtext:
 		"I design logos and complete brand identity systems for products, startups, and small businesses.",
 	description:
-		"Ilham Zakaria is a graphic designer focused on logo design and brand identity. He helps products, startups, and small businesses build a clear, memorable brand.",
+		"Ilham Zakaria is a graphic designer enthusiast focused on logo design and brand identity. He helps products, startups, and small businesses build a clear, memorable brand.",
 	url: "https://ilhamzakaria.com",
-	email: "hello@ilhamzakaria.com",
-	location: "Jakarta / Remote",
+	email: "ilhamzakaria3024@gmail.com",
+	location: "Pamekasan, Jawa Timur",
 	availability: "Open for projects",
 	nav: [
 		{ label: "Profile", href: "#profile" },
@@ -23,10 +23,9 @@ export const site = {
 		{ label: "Contact", href: "#contact" },
 	] satisfies NavLink[],
 	socials: [
-		{ label: "WhatsApp", href: "https://wa.me/6280000000000" },
-		{ label: "Instagram", href: "https://instagram.com/ilhamzakaria" },
-		{ label: "Behance", href: "https://behance.net/ilhamzakaria" },
-		{ label: "LinkedIn", href: "https://linkedin.com/in/ilhamzakaria" },
+		{ label: "WhatsApp", href: "https://wa.me/6281939374447" },
+		{ label: "Instagram", href: "https://instagram.com/ham_zkry" },
+		{ label: "LinkedIn", href: "https://linkedin.com/in/ilhamz" },
 	] satisfies SocialLink[],
 	stats: [
 		{ label: "Focus", value: "Logo Design & Brand Identity" },

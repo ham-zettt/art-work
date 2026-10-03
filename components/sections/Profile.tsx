@@ -5,9 +5,9 @@ import { Reveal } from "@/components/ui/Reveal";
 export function Profile() {
 	return (
 		<section id="profile" className="section">
-			<div className="container-x grid gap-12 md:grid-cols-12 md:gap-16">
+			<div className="container-x sm: grid gap-12 md:grid-cols-12 md:gap-16">
 				<Reveal className="order-first md:order-last md:col-span-5">
-					<div className="group relative aspect-[3/4] w-full max-w-[80%] overflow-hidden border border-line bg-surface md:max-w-none">
+					<div className="group relative h-[400px] w-[300px] overflow-hidden border border-line bg-surface md:max-w-none">
 						<Image
 							src={site.profile.image}
 							alt={`Portrait of ${site.name}`}

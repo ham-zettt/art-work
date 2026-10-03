@@ -12,7 +12,7 @@ export default function Home() {
       <Profile />
       <Skills />
       <LogoGrid />
-      <BrandIdentityGrid />
+      {/* <BrandIdentityGrid /> */}
       <Contact />
     </>
   );

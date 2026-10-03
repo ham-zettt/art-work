@@ -1,22 +1,19 @@
 import type { Skill } from "@/types";
 
 export const tools: Skill[] = [
-	{ name: "Adobe Illustrator", icon: "/images/icons/adobe-illustrator.svg" },
-	{ name: "Adobe Photoshop", icon: "/images/icons/adobe-photoshop.svg" },
-	{ name: "Adobe InDesign", icon: "/images/icons/adobe-indesign.svg" },
-	{ name: "Figma", icon: "/images/icons/figma.svg" },
-	{ name: "CorelDRAW", icon: "/images/icons/coreldraw.svg" },
-	{ name: "Procreate", icon: "/images/icons/procreate.svg" },
+	{ name: "Inkscape", icon: "/images/icons/inkscape.png" },
+	{ name: "Figma", icon: "/images/icons/figma.png" },
+	{ name: "Canva", icon: "/images/icons/canva.png" },
+	{ name: "Adobe Photoshop", icon: "/images/icons/adobe-photoshop.png" },
+	{ name: "Adobe Lightroom", icon: "/images/icons/lightroom.png" },
+	{ name: "Adobe XD", icon: "/images/icons/xd.svg" },
 ];
 
 export const skills: Skill[] = [
 	{ name: "Logo Design" },
-	{ name: "Brand Identity" },
-	{ name: "Brand Guidelines" },
 	{ name: "Typography" },
+	{ name: "Brand Identity" },
+	{ name: "Guidelines" },
 	{ name: "Color Theory" },
 	{ name: "Packaging Design" },
-	{ name: "Packaging Design" },
-	{ name: "Visual Strategy" },
-	{ name: "Art Direction" },
 ];

@@ -13,7 +13,7 @@ function RotatingWord({ words }: { words: readonly string[] }) {
 		if (reduceMotion) return;
 		const timeoutId = setTimeout(() => {
 			setIndex((current) => (current + 1) % words.length);
-		}, 2200);
+		}, 1500);
 		return () => clearTimeout(timeoutId);
 	}, [index, words.length, reduceMotion]);
 
@@ -24,7 +24,7 @@ function RotatingWord({ words }: { words: readonly string[] }) {
 	);
 
 	return (
-		<span className="relative inline-block overflow-hidden pb-[0.12em] align-bottom">
+		<span className="relative inline-block overflow-hidden font-serif italic align-bottom">
 			<span aria-hidden className="invisible">
 				{longest}
 			</span>
@@ -66,7 +66,7 @@ export function Hero() {
 					{site.eyebrow}
 				</p>
 
-				<h1 className="display mt-8 max-w-[13ch]">
+				<h1 className="display mt-8 text-[6.5rem] sm:text-[7.2rem] md:text-[8rem] max-w-[5ch] sm:max-w-[15ch]">
 					<span className="rise-line">
 						<span style={{ animationDelay: "0.15s" }}>
 							{site.headlineLines[0]}
