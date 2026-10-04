@@ -23,7 +23,7 @@ export function Header() {
 	}, [open]);
 
 	return (
-		<header className="sticky top-0 z-50 border-b border-line bg-bg/80 backdrop-blur-[4px]">
+		<header className="sticky top-0 z-50 border-b border-line bg-bg sm:bg-bg/80 sm:backdrop-blur-[4px]">
 			<div className="container-x flex h-16 items-center justify-between md:h-[72px]">
 				<Link
 					href="/"

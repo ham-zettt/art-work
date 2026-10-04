@@ -175,6 +175,23 @@
 	animation: fade-in 1s var(--ease) both;
 }
 
+.logo-scroll-color {
+	--logo-grayscale: 1;
+	filter: grayscale(var(--logo-grayscale));
+}
+
+@media (min-width: 640px), (prefers-reduced-motion: reduce) {
+	.logo-scroll-color {
+		filter: grayscale(1);
+	}
+}
+
+@media (min-width: 640px) {
+	.group:hover .logo-scroll-color {
+		filter: grayscale(0);
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { CenterColorImage } from "@/components/ui/CenterColorImage";
 import { Reveal } from "@/components/ui/Reveal";
 import { logos } from "@/data/logos";
 
@@ -26,12 +26,12 @@ export function LogoGrid() {
 								className="group flex flex-col border-r border-b border-line"
 							>
 								<div className="relative aspect-square overflow-hidden">
-									<Image
+									<CenterColorImage
 										src={logo.image}
 										alt={`${logo.title} logo`}
 										fill
 										sizes="(min-width: 640px) 33vw, 100vw"
-										className="object-contain p-32 sm:p-12 md:p-30 grayscale transition-[filter,transform,translate,scale,rotate] duration-500 ease-expo motion-safe:group-hover:scale-[1.05] group-hover:grayscale-0"
+										className="object-contain p-20 sm:p-12 md:p-16 lg:p-30 transition-[filter,transform,translate,scale,rotate] duration-500 ease-expo motion-safe:group-hover:scale-[1.05] group-hover:grayscale-0"
 									/>
 								</div>
 								<div className="flex flex-1 flex-col gap-3 border-t border-line p-6 md:min-h-[150px] md:p-8">

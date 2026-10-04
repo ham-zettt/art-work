@@ -42,7 +42,7 @@ export const logos: LogoItem[] = [
 		title: "35th Central Group",
 		description:
 			"A crafted mark for a furniture maker, combining a flame and grain into one simple shape.",
-		image: "/images/logos/hasil.png",
+		image: "/images/logos/centralgroup.png",
 		category: "Symbol",
 		year: "2024",
 	},

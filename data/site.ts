@@ -24,7 +24,7 @@ export const site = {
 	] satisfies NavLink[],
 	socials: [
 		{ label: "WhatsApp", href: "https://wa.me/6281939374447" },
-		{ label: "Instagram", href: "https://instagram.com/ham_zkry" },
+		{ label: "Instagram", href: "https://instagram.com/hamzettt.design" },
 		{ label: "LinkedIn", href: "https://linkedin.com/in/ilhamz" },
 	] satisfies SocialLink[],
 	stats: [

@@ -66,7 +66,7 @@ export function Hero() {
 					{site.eyebrow}
 				</p>
 
-				<h1 className="display mt-8 text-[6.5rem] sm:text-[7.2rem] md:text-[8rem] max-w-[5ch] sm:max-w-[15ch]">
+				<h1 className="display mt-8 text-[6rem] sm:text-[7.2rem] md:text-[8rem] max-w-[5ch] sm:max-w-[15ch]">
 					<span className="rise-line">
 						<span style={{ animationDelay: "0.15s" }}>
 							{site.headlineLines[0]}
@@ -80,7 +80,7 @@ export function Hero() {
 					</span>
 				</h1>
 
-				<div className="mt-16 flex flex-col gap-8 border-t border-white/20 pt-8 md:flex-row md:items-end md:justify-between">
+				<div className="mt-8 flex flex-col gap-8 border-t border-white/20 pt-8 md:flex-row md:items-end md:justify-between">
 					<p
 						className="lead animate-fade max-w-md text-white/70"
 						style={{ animationDelay: "0.5s" }}
