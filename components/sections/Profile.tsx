@@ -6,7 +6,7 @@ export function Profile() {
 	return (
 		<section id="profile" className="section">
 			<div className="container-x sm: grid gap-12 md:grid-cols-12 md:gap-16">
-				<Reveal className="order-first md:order-last md:col-span-5">
+				{/* <Reveal className="order-first md:order-last md:col-span-5">
 					<div className="group relative h-[400px] w-[300px] overflow-hidden border border-line bg-surface md:max-w-none">
 						<Image
 							src={site.profile.image}
@@ -16,13 +16,15 @@ export function Profile() {
 							className="object-cover transition-[filter,transform,translate,scale,rotate] duration-500 ease-expo group-hover:scale-[1.02]"
 						/>
 					</div>
-				</Reveal>
+				</Reveal> */}
 
 				<div className="md:order-first md:col-span-7">
 					<p className="eyebrow text-muted">Profile</p>
-					<h2 className="h2 mt-4 max-w-[13ch]">
-						{site.profile.title}
-					</h2>
+					<Reveal className="order-first md:order-last md:col-span-5">
+						<h2 className="h2 mt-4 max-w-[13ch]">
+							{site.profile.title}
+						</h2>
+					</Reveal>
 
 					<div className="mt-8 max-w-xl space-y-5">
 						{site.profile.paragraphs.map((paragraph) => (

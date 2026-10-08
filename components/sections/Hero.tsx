@@ -24,7 +24,7 @@ function RotatingWord({ words }: { words: readonly string[] }) {
 	);
 
 	return (
-		<span className="relative inline-block overflow-hidden font-serif italic align-bottom">
+		<span className="relative inline-block font-serif italic align-bottom pb-2">
 			<span aria-hidden className="invisible">
 				{longest}
 			</span>

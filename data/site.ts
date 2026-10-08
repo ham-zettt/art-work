@@ -5,7 +5,7 @@ export const site = {
 	role: "Logo Designer & Brand Identity Designer",
 	eyebrow: "Logo Design & Brand Identity",
 	headline: "Building brands people remember.",
-	headlineLines: ["Building brands", "your"],
+	headlineLines: ["Building brands", "through"],
 	heroWords: ["logo", "identity", "website"],
 	heroSubtext:
 		"I design logos and complete brand identity systems for products, startups, and small businesses.",
@@ -36,7 +36,7 @@ export const site = {
 		title: "Hi, I'm Muhammad Ilham Zakaria",
 		image: "/images/me.png",
 		paragraphs: [
-			"I'm a graphic designer who works mostly on logos and brand identity. I help products, startups, and small businesses turn an idea into a mark and a system that holds up everywhere it lives.",
+			"I'm a graphic design enthusiast who works mostly on logos and brand identity. I help products, startups, and small businesses turn an idea into a mark and a system that holds up everywhere it lives.",
 			"My process starts with listening. I map out what the business actually does and who it speaks to, then explore directions until the identity feels inevitable rather than decorated. Every choice, from the type to the color to the spacing, has a reason.",
 		],
 	},
