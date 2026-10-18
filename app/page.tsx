@@ -6,14 +6,14 @@ import { Profile } from "@/components/sections/Profile";
 import { Skills } from "@/components/sections/Skills";
 
 export default function Home() {
-  return (
-    <>
-      <Hero />
-      <Profile />
-      <Skills />
-      <LogoGrid />
-      {/* <BrandIdentityGrid /> */}
-      <Contact />
-    </>
-  );
+	return (
+		<>
+			<Hero />
+			<Profile />
+			<Skills />
+			<BrandIdentityGrid />
+			<LogoGrid />
+			<Contact />
+		</>
+	);
 }

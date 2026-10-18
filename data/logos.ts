@@ -2,6 +2,15 @@ import type { LogoItem } from "@/types";
 
 export const logos: LogoItem[] = [
 	{
+		id: "logo-001",
+		title: "Zenhabits",
+		description:
+			"ZenHabits is an all-in-one app that combines notes, to-do lists, and habit trackers into one application.",
+		image: "/images/logos/zenhabits.png",
+		category: "Brand Identity",
+		year: "2025",
+	},
+	{
 		id: "logo-01",
 		title: "Golf Zone",
 		description:
