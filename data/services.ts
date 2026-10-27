@@ -17,7 +17,7 @@ export const services: Service[] = [
 	},
 	{
 		id: "3",
-		title: "Website",
+		title: "Website Design",
 		description:
 			"Modern, responsive websites built to showcase your brand and drive engagement.",
 		icon: "monitor",

@@ -38,11 +38,11 @@ export function BrandIdentityGrid() {
 
                 <div className="flex flex-1 flex-col border-t border-line p-6 md:p-8">
                   <div className="flex items-start justify-between gap-4">
-                    <h3 className="h3 underline-offset-4 group-hover:underline">
+                    <h3 className="h3 underline-offset-4 ">
                       {brand.title}
                     </h3>
-                    <span className="caption flex items-center gap-2 whitespace-nowrap text-muted transition-transform duration-300 ease-expo group-hover:translate-x-1">
-                      View Project <span aria-hidden>→</span>
+                    <span className="h5 flex items-center gap-2 whitespace-nowrap group-hover:underline transition-transform duration-300 ease-expo group-hover:translate-x-1">
+                      Click to View <span aria-hidden>→</span>
                     </span>
                   </div>
 

@@ -27,7 +27,7 @@ export function HeroSection({ avatarList }: { avatarList: AvatarList[] }) {
 			</Reveal>
 
 			<Reveal delay={240}>
-				<p className="lead max-w-xl text-xs sm:text-balance text-white/70">
+				<p className="text-xs sm:text-sm max-w-xl text-balance text-white/70">
 					I design logos, brand identity and modern website systems
 					that help products, startups, and small businesses to stand
 					out.
