@@ -19,6 +19,20 @@
 	--color-surface: var(--surface);
 	--color-invert-bg: var(--invert-bg);
 	--color-invert-fg: var(--invert-fg);
+	--color-background: var(--bg);
+	--color-foreground: var(--fg);
+	--color-border: var(--line);
+	--color-input: var(--line);
+	--color-ring: var(--fg);
+	--color-muted-foreground: var(--muted);
+	--color-primary: var(--fg);
+	--color-primary-foreground: var(--bg);
+	--color-secondary: var(--surface);
+	--color-secondary-foreground: var(--fg);
+	--color-accent: var(--surface);
+	--color-accent-foreground: var(--fg);
+	--color-destructive: #e5484d;
+	--color-destructive-foreground: #ffffff;
 	--font-sans: var(--font-geist-sans);
 	--ease-expo: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -94,8 +108,8 @@
 		text-transform: uppercase;
 	}
 
-	.display {
-		font-size: clamp(3.5rem, 12vw, 11rem);
+	.h1 {
+		font-size: clamp(3rem, 8vw, 6rem);
 		line-height: 0.95;
 		letter-spacing: -0.05em;
 		font-weight: 500;

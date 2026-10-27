@@ -1,7 +1,7 @@
 import type { NavLink, SocialLink } from "@/types";
 
 export const site = {
-	name: "IlhamZakaria",
+	name: "HamZettt",
 	role: "Logo Designer & Brand Identity Designer",
 	eyebrow: "Logo Design & Brand Identity",
 	headline: "Building brands people remember.",
@@ -16,8 +16,6 @@ export const site = {
 	location: "Pamekasan, Jawa Timur",
 	availability: "Open for projects",
 	nav: [
-		{ label: "Profile", href: "#profile" },
-		{ label: "Skills", href: "#skills" },
 		{ label: "Logo", href: "#logo" },
 		{ label: "Brand Identity", href: "#brand-identity" },
 		{ label: "Contact", href: "#contact" },

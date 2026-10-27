@@ -46,7 +46,7 @@ export function Skills() {
 				<Reveal>
 					<SectionHeading
 						eyebrow="Capabilities"
-						title="Skills"
+						title="Skills & Tools"
 						description="The tools I use daily and the disciplines I bring to every brand project."
 					/>
 				</Reveal>

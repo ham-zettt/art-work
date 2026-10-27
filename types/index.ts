@@ -45,3 +45,10 @@ export type SocialLink = {
 	label: string;
 	href: string;
 };
+
+export type Service = {
+	id: string;
+	title: string;
+	description: string;
+	icon: "pen-tool" | "palette" | "monitor";
+};
