@@ -5,6 +5,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SocialIcon } from "@/components/ui/SocialIcon";
 import { site } from "@/data/site";
 
+const whatsapp = site.socials[0];
+const otherChannels = site.socials.slice(1);
+
 export function Contact() {
 	return (
 		<section id="contact" className="pb-6 md:pb-10">
@@ -34,17 +37,18 @@ export function Contact() {
 							<div className="mt-10 border-b border-line pb-10">
 								<p className="eyebrow text-muted">WhatsApp</p>
 								<a
-									href={site.socials[0].href}
+									href={whatsapp.href}
 									target="_blank"
 									rel="noopener noreferrer"
 									className="group mt-3 inline-flex min-h-[56px] flex-wrap items-center gap-x-4 gap-y-2 text-[clamp(1.9rem,5.4vw,3.5rem)] font-light leading-none tracking-[-0.04em] transition-colors duration-300 hover:text-accent"
 								>
-									{site.socials[0].display}
+									<span className="sr-only">WhatsApp: </span>
+									{whatsapp.display}
 									<ArrowUpRight
 										aria-hidden
 										className="h-7 w-7 shrink-0 text-accent transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
 									/>
-									<span className="sr-only">(opens WhatsApp in a new tab)</span>
+									<span className="sr-only"> (opens in a new tab)</span>
 								</a>
 
 								<div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -57,6 +61,11 @@ export function Contact() {
 									</a>
 									<CopyEmail email={site.email} />
 								</div>
+
+								<p className="mt-6 max-w-md text-sm leading-relaxed text-muted">
+									A first message: what you&apos;re building, who it&apos;s for,
+									and when you need it.
+								</p>
 							</div>
 						</Reveal>
 
@@ -66,14 +75,11 @@ export function Contact() {
 								<p className="mt-3 text-lg leading-snug tracking-[-0.02em]">
 									{site.location}
 								</p>
-								<p className="mt-2 text-sm text-muted">
-									Working with clients worldwide, remote-first.
-								</p>
 							</Reveal>
 
 							<Reveal delay={80} className="md:col-span-7">
 								<ul className="border-t border-line">
-									{site.socials.slice(1).map((social, index) => (
+									{otherChannels.map((social, index) => (
 										<li key={social.label} className="border-b border-line">
 											<a
 												href={social.href}
