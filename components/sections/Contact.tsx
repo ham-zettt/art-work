@@ -31,14 +31,32 @@ export function Contact() {
 						</Reveal>
 
 						<Reveal delay={100}>
-							<div className="mt-10 flex flex-col items-start gap-5 border-b border-line pb-10 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
+							<div className="mt-10 border-b border-line pb-10">
+								<p className="eyebrow text-muted">WhatsApp</p>
 								<a
-									href={`mailto:${site.email}`}
-									className="break-all text-[clamp(1.15rem,3.6vw,2.75rem)] font-light leading-tight tracking-[-0.03em] underline decoration-line-strong decoration-1 underline-offset-[6px] transition-colors duration-300 hover:text-accent hover:decoration-accent"
+									href={site.socials[0].href}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="group mt-3 inline-flex min-h-[56px] flex-wrap items-center gap-x-4 gap-y-2 text-[clamp(1.9rem,5.4vw,3.5rem)] font-light leading-none tracking-[-0.04em] transition-colors duration-300 hover:text-accent"
 								>
-									{site.email}
+									{site.socials[0].display}
+									<ArrowUpRight
+										aria-hidden
+										className="h-7 w-7 shrink-0 text-accent transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+									/>
+									<span className="sr-only">(opens WhatsApp in a new tab)</span>
 								</a>
-								<CopyEmail email={site.email} />
+
+								<div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+									<span className="eyebrow text-muted">or email</span>
+									<a
+										href={`mailto:${site.email}`}
+										className="inline-flex min-h-[44px] items-center break-words text-lg tracking-[-0.02em] underline decoration-line-strong decoration-1 underline-offset-[5px] transition-colors duration-300 hover:text-accent hover:decoration-accent"
+									>
+										{site.email}
+									</a>
+									<CopyEmail email={site.email} />
+								</div>
 							</div>
 						</Reveal>
 
@@ -55,7 +73,7 @@ export function Contact() {
 
 							<Reveal delay={80} className="md:col-span-7">
 								<ul className="border-t border-line">
-									{site.socials.map((social, index) => (
+									{site.socials.slice(1).map((social, index) => (
 										<li key={social.label} className="border-b border-line">
 											<a
 												href={social.href}
@@ -79,6 +97,7 @@ export function Contact() {
 													aria-hidden
 													className="h-4 w-4 text-muted transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
 												/>
+												<span className="sr-only"> (opens in a new tab)</span>
 											</a>
 										</li>
 									))}

@@ -44,6 +44,8 @@ export type NavLink = {
 export type SocialLink = {
 	label: string;
 	href: string;
+	/** Human-readable form of href, e.g. a phone number. */
+	display?: string;
 };
 
 export type Service = {

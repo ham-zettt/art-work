@@ -21,7 +21,7 @@ export const site = {
 		{ label: "Contact", href: "#contact" },
 	] satisfies NavLink[],
 	socials: [
-		{ label: "WhatsApp", href: "https://wa.me/6281939374447" },
+		{ label: "WhatsApp", href: "https://wa.me/6281939374447", display: "+62 819-3937-4447" },
 		{ label: "Instagram", href: "https://instagram.com/hamzettt.design" },
 		{ label: "LinkedIn", href: "https://linkedin.com/in/ilhamz" },
 	] satisfies SocialLink[],
