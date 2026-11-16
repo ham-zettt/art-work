@@ -14,6 +14,31 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 const selectedMarks = logos.slice(0, 4);
 const marquee = [...logos, ...logos];
 
+const actions = [
+	{ href: "#logo", label: "Projects" },
+	{ href: "#contact", label: "Contact" },
+];
+
+function HeroActions({ delay }: { delay: number }) {
+	return (
+		<>
+			{actions.map((action, index) => (
+				<m.a
+					key={action.href}
+					href={action.href}
+					initial={{ opacity: 0, y: 16 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.55, delay: delay + index * 0.05, ease: EASE }}
+					className="btn-frame justify-between md:justify-center"
+				>
+					{action.label}
+					<ArrowUpRight aria-hidden className="h-3.5 w-3.5" />
+				</m.a>
+			))}
+		</>
+	);
+}
+
 /** Parallax only on fine pointers, large screens, and when motion is allowed. */
 function useHeavyMotion() {
 	const reduce = useReducedMotion();
@@ -111,7 +136,7 @@ export function Hero() {
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-								className="hero-mesh relative h-28 overflow-hidden border-t border-line sm:h-40 lg:h-auto lg:border-l lg:border-t-0"
+								className="hero-mesh relative hidden overflow-hidden border-line lg:block lg:border-l"
 							>
 								<span className="eyebrow absolute right-5 top-5 z-10 text-white/60">
 									Portfolio / 01
@@ -183,6 +208,10 @@ export function Hero() {
 												{site.role}. Designing logos and identity systems
 												that stay legible everywhere they live.
 											</m.p>
+
+											<div className="mt-5 grid grid-cols-2 gap-3 lg:hidden">
+												<HeroActions delay={0.7} />
+											</div>
 										</div>
 
 										<m.div
@@ -218,7 +247,7 @@ export function Hero() {
 
 						<a
 							href="#services"
-							className="absolute bottom-6 right-6 z-20 hidden items-center gap-3 font-mono text-[0.625rem] uppercase tracking-[0.18em] text-white/60 transition-colors duration-300 hover:text-fg md:flex"
+							className="absolute bottom-6 right-6 z-20 hidden items-center gap-3 font-mono text-[0.625rem] uppercase tracking-[0.18em] text-white/60 transition-colors duration-300 hover:text-fg lg:flex"
 						>
 							Scroll to explore
 							<m.span
@@ -235,26 +264,9 @@ export function Hero() {
 
 				{/* ---------- CTAs + stats ---------- */}
 				<div className="mt-3 grid grid-cols-2 gap-3 lg:grid-cols-[auto_auto_1fr_1fr]">
-					<m.a
-						href="#logo"
-						initial={{ opacity: 0, y: 16 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.55, delay: 0.5, ease: EASE }}
-						className="btn-frame justify-between md:justify-center"
-					>
-						Projects
-						<ArrowUpRight aria-hidden className="h-3.5 w-3.5" />
-					</m.a>
-					<m.a
-						href="#contact"
-						initial={{ opacity: 0, y: 16 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.55, delay: 0.55, ease: EASE }}
-						className="btn-frame justify-between md:justify-center"
-					>
-						Contact
-						<ArrowUpRight aria-hidden className="h-3.5 w-3.5" />
-					</m.a>
+					<div className="hidden lg:contents">
+						<HeroActions delay={0.5} />
+					</div>
 
 					<m.div
 						initial={{ opacity: 0, y: 16 }}
