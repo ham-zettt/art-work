@@ -158,7 +158,7 @@ export function Hero() {
 
 									<div className="flex flex-wrap items-center justify-between gap-3">
 										<span className="eyebrow text-muted">
-											01 / Hello, I&apos;m
+											Ilham Zakaria
 										</span>
 										<span className="flex items-center gap-2 font-mono text-[0.625rem] uppercase tracking-[0.16em] text-fg/80">
 											<span
@@ -183,7 +183,7 @@ export function Hero() {
 														animate={{ y: "0%" }}
 														transition={{ duration: 0.8, delay: 0.45, ease: EASE }}
 													>
-														Ilham
+														Logo &amp;
 													</m.span>
 												</span>
 												{" "}
@@ -194,7 +194,7 @@ export function Hero() {
 														animate={{ y: "0%" }}
 														transition={{ duration: 0.8, delay: 0.52, ease: EASE }}
 													>
-														Zakaria
+														identity
 													</m.span>
 												</span>
 											</h1>
@@ -205,8 +205,7 @@ export function Hero() {
 												transition={{ duration: 0.6, delay: 0.6, ease: EASE }}
 												className="mt-5 max-w-sm text-sm leading-relaxed text-muted"
 											>
-												{site.role}. Designing logos and identity systems
-												that stay legible everywhere they live.
+												{site.heroSubtext}
 											</m.p>
 
 											<div className="mt-5 grid grid-cols-2 gap-3 lg:hidden">
@@ -263,24 +262,11 @@ export function Hero() {
 				</div>
 
 				{/* ---------- CTAs + stats ---------- */}
-				<div className="mt-3 grid grid-cols-2 gap-3 lg:grid-cols-[auto_auto_1fr_1fr]">
+				<div className="mt-3 hidden gap-3 lg:grid lg:grid-cols-[auto_auto_1fr]">
 					<div className="hidden lg:contents">
 						<HeroActions delay={0.5} />
 					</div>
 
-					<m.div
-						initial={{ opacity: 0, y: 16 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.55, delay: 0.6, ease: EASE }}
-						className="panel flex min-h-[84px] items-end justify-between gap-3 rounded-xl p-4 md:p-5"
-					>
-						<span className="text-[clamp(1.75rem,3vw,2.5rem)] font-light leading-none tracking-[-0.04em]">
-							<CountUp to={20} suffix="+" delay={0.65} />
-						</span>
-						<span className="eyebrow max-w-[9ch] text-right leading-relaxed text-muted">
-							Projects completed
-						</span>
-					</m.div>
 					<m.div
 						initial={{ opacity: 0, y: 16 }}
 						animate={{ opacity: 1, y: 0 }}
@@ -302,9 +288,6 @@ export function Hero() {
 						<p className="eyebrow text-muted">
 							Brands &amp; identities I&apos;ve shaped
 						</p>
-						<span className="eyebrow text-muted">
-							{String(logos.length).padStart(2, "0")} marks
-						</span>
 					</div>
 					<div className="relative mt-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
 						<div
