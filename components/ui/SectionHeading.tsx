@@ -1,32 +1,35 @@
 type SectionHeadingProps = {
-  eyebrow?: string;
-  title: string;
-  count?: string;
-  description?: string;
+	eyebrow?: string;
+	title: string;
+	count?: string;
+	description?: string;
+	number?: string;
 };
 
 export function SectionHeading({
-  eyebrow,
-  title,
-  count,
-  description,
+	eyebrow,
+	title,
+	count,
+	description,
+	number,
 }: SectionHeadingProps) {
-  return (
-    <header className="border-t border-line pt-6 md:pt-8">
-      <div className="flex flex-wrap items-end justify-between gap-x-12 gap-y-4">
-        <div>
-          {eyebrow ? <p className="eyebrow text-muted">{eyebrow}</p> : null}
-          <h2 className="h2 mt-4 flex items-start gap-2">
-            <span>{title}</span>
-            {count ? (
-              <span className="caption mt-2 font-normal text-muted">({count})</span>
-            ) : null}
-          </h2>
-        </div>
-        {description ? (
-          <p className="lead max-w-md text-muted">{description}</p>
-        ) : null}
-      </div>
-    </header>
-  );
+	return (
+		<header className="border-t border-line pt-5 md:pt-6">
+			<div className="flex items-center justify-between gap-4 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-muted">
+				<span className="flex items-center gap-3">
+					<span aria-hidden className="h-px w-6 bg-accent" />
+					{number ? `${number} / ` : null}
+					{eyebrow ?? "Section"}
+				</span>
+				{count ? <span className="tabular-nums">({count})</span> : null}
+			</div>
+
+			<div className="mt-8 flex flex-wrap items-end justify-between gap-x-12 gap-y-5">
+				<h2 className="h2">{title}</h2>
+				{description ? (
+					<p className="lead max-w-sm text-muted">{description}</p>
+				) : null}
+			</div>
+		</header>
+	);
 }

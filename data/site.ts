@@ -21,7 +21,7 @@ export const site = {
 		{ label: "Contact", href: "#contact" },
 	] satisfies NavLink[],
 	socials: [
-		{ label: "WhatsApp", href: "https://wa.me/6281939374447" },
+		{ label: "WhatsApp", href: "https://wa.me/6281939374447", display: "+62 819-3937-4447" },
 		{ label: "Instagram", href: "https://instagram.com/hamzettt.design" },
 		{ label: "LinkedIn", href: "https://linkedin.com/in/ilhamz" },
 	] satisfies SocialLink[],
@@ -32,7 +32,7 @@ export const site = {
 	],
 	profile: {
 		title: "Hi, I'm Muhammad Ilham Zakaria",
-		image: "/images/me.png",
+		image: "/images/me.webp",
 		paragraphs: [
 			"I'm a graphic design enthusiast who works mostly on logos and brand identity. I help products, startups, and small businesses turn an idea into a mark and a system that holds up everywhere it lives.",
 			"My process starts with listening. I map out what the business actually does and who it speaks to, then explore directions until the identity feels inevitable rather than decorated. Every choice, from the type to the color to the spacing, has a reason.",
