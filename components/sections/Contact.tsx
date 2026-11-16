@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { CornerBrackets } from "@/components/ui/CornerBrackets";
 import { CopyEmail } from "@/components/ui/CopyEmail";
 import { Reveal } from "@/components/ui/Reveal";
+import { SocialIcon } from "@/components/ui/SocialIcon";
 import { site } from "@/data/site";
 
 export function Contact() {
@@ -66,7 +67,11 @@ export function Contact() {
 													<span className="eyebrow text-muted">
 														{String(index + 1).padStart(2, "0")}
 													</span>
-													<span className="text-lg tracking-[-0.02em] transition-colors duration-300 group-hover:text-accent">
+													<span className="flex items-center gap-3 text-lg tracking-[-0.02em] transition-colors duration-300 group-hover:text-accent">
+														<SocialIcon
+															name={social.label}
+															className="h-4 w-4 text-muted transition-colors duration-300 group-hover:text-accent"
+														/>
 														{social.label}
 													</span>
 												</span>

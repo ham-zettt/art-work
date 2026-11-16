@@ -70,11 +70,12 @@ export function Hero() {
 									<Image
 										src="/images/me.webp"
 										alt="Ilham Zakaria, logo and brand identity designer"
-										fill
+										width={1024}
+										height={1536}
 										loading="eager"
 										fetchPriority="high"
 										sizes="(min-width: 1024px) 50vw, 100vw"
-										className="object-cover object-[50%_16%] grayscale brightness-[0.82] contrast-[1.14]"
+										className="absolute inset-0 h-full w-full object-cover object-[50%_16%] grayscale brightness-[0.82] contrast-[1.14]"
 									/>
 								</m.div>
 
@@ -160,6 +161,7 @@ export function Hero() {
 														Ilham
 													</m.span>
 												</span>
+												{" "}
 												<span className="block overflow-hidden pb-[0.06em]">
 													<m.span
 														className="block text-fg/90"

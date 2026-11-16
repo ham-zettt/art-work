@@ -4,15 +4,10 @@ import Link from "next/link";
 import { AnimatePresence, m } from "motion/react";
 import { ArrowUpRight, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { SocialIcon } from "@/components/ui/SocialIcon";
 import { site } from "@/data/site";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-
-const socialShort: Record<string, string> = {
-	WhatsApp: "WA",
-	Instagram: "IG",
-	LinkedIn: "IN",
-};
 
 export function Header() {
 	const [open, setOpen] = useState(false);
@@ -101,9 +96,11 @@ export function Header() {
 									target="_blank"
 									rel="noopener noreferrer"
 									aria-label={social.label}
-									className="hidden h-11 w-10 items-center justify-center rounded-full font-mono text-[0.625rem] tracking-[0.1em] text-muted transition-colors duration-300 hover:bg-white/5 hover:text-fg md:flex"
+									className="hidden h-11 w-11 items-center justify-center rounded-full text-muted transition-colors duration-300 hover:bg-white/5 hover:text-fg md:flex"
 								>
-									<span aria-hidden>{socialShort[social.label] ?? social.label.slice(0, 2)}</span>
+									<span aria-hidden>
+										<SocialIcon name={social.label} />
+									</span>
 								</a>
 							))}
 							<a

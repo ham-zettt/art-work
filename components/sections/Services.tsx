@@ -75,10 +75,11 @@ export function Services() {
 											<Image
 												src="/images/me.webp"
 												alt=""
-												fill
+												width={1024}
+												height={1536}
 												sizes="(min-width: 768px) 260px, 40vw"
 												loading="lazy"
-												className="object-cover object-[50%_15%] grayscale"
+												className="absolute inset-0 h-full w-full object-cover object-[50%_15%] grayscale"
 											/>
 											<div
 												aria-hidden

@@ -1,5 +1,6 @@
 import { ArrowUp } from "lucide-react";
 import { CornerBrackets } from "@/components/ui/CornerBrackets";
+import { SocialIcon } from "@/components/ui/SocialIcon";
 import { site } from "@/data/site";
 
 export function Footer() {
@@ -45,8 +46,9 @@ export function Footer() {
 										href={social.href}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="inline-flex min-h-[32px] items-center font-mono text-[0.625rem] uppercase tracking-[0.14em] text-muted transition-colors duration-300 hover:text-accent"
+										className="flex min-h-[32px] items-center gap-2 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-muted transition-colors duration-300 hover:text-accent"
 									>
+										<SocialIcon name={social.label} className="h-3.5 w-3.5" />
 										{social.label}
 									</a>
 								</li>
