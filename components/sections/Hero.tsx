@@ -19,7 +19,15 @@ const actions = [
 	{ href: "#contact", label: "Contact" },
 ];
 
+/** Entrance animation, skipped for visitors who ask for reduced motion. */
+function useEnter() {
+	const reduce = useReducedMotion();
+	return reduce ? { initial: false as const } : {};
+}
+
 function HeroActions({ delay }: { delay: number }) {
+	const enter = useEnter();
+
 	return (
 		<>
 			{actions.map((action, index) => (
@@ -27,6 +35,7 @@ function HeroActions({ delay }: { delay: number }) {
 					key={action.href}
 					href={action.href}
 					initial={{ opacity: 0, y: 16 }}
+					{...enter}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.55, delay: delay + index * 0.05, ease: EASE }}
 					className="btn-frame justify-between md:justify-center"
@@ -59,6 +68,9 @@ export function Hero() {
 	const frameRef = useRef<HTMLDivElement>(null);
 	const marqueeRef = useRef<HTMLDivElement>(null);
 	const heavy = useHeavyMotion();
+	const enter = useEnter();
+	const reduce = useReducedMotion();
+	const [marqueePaused, setMarqueePaused] = useState(false);
 	const marqueeVisible = useInView(marqueeRef, { margin: "160px" });
 
 	const { scrollYProgress } = useScroll({
@@ -74,6 +86,7 @@ export function Hero() {
 				<div ref={frameRef} className="relative">
 					<m.div
 						initial={{ opacity: 0, scale: 0.995 }}
+						{...enter}
 						animate={{ opacity: 1, scale: 1 }}
 						transition={{ duration: 0.6, ease: EASE }}
 						className="relative overflow-hidden rounded-2xl border border-line bg-black"
@@ -84,6 +97,7 @@ export function Hero() {
 							{/* Photo panel with CSS duotone */}
 							<m.figure
 								initial={{ clipPath: "inset(0 0 100% 0)" }}
+								{...enter}
 								animate={{ clipPath: "inset(0 0 0% 0)" }}
 								transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
 								className="relative h-[34svh] min-h-[260px] overflow-hidden bg-black sm:h-[46svh] lg:h-auto"
@@ -134,14 +148,15 @@ export function Hero() {
 							{/* Abstract gradient panel */}
 							<m.div
 								initial={{ opacity: 0 }}
+								{...enter}
 								animate={{ opacity: 1 }}
 								transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
 								className="hero-mesh relative hidden overflow-hidden border-line lg:block lg:border-l"
 							>
-								<span className="eyebrow absolute right-5 top-5 z-10 text-white/60">
+								<span className="eyebrow absolute right-5 top-5 z-10 rounded bg-black/55 px-2 py-1 text-white/90">
 									Portfolio / 01
 								</span>
-								<span className="absolute bottom-5 left-5 z-10 max-w-[16ch] font-mono text-[0.625rem] uppercase leading-relaxed tracking-[0.16em] text-white/45">
+								<span className="absolute bottom-5 left-5 z-10 max-w-[16ch] rounded bg-black/55 px-2 py-1 font-mono text-[0.625rem] uppercase leading-relaxed tracking-[0.16em] text-white/85">
 									Marks, systems &amp; type
 								</span>
 							</m.div>
@@ -150,6 +165,7 @@ export function Hero() {
 							<div className="relative z-10 -mt-8 px-3 pb-3 sm:px-5 lg:absolute lg:inset-y-0 lg:right-0 lg:m-0 lg:flex lg:w-[64%] lg:items-center lg:p-8">
 								<m.div
 									initial={{ opacity: 0, y: 30 }}
+									{...enter}
 									animate={{ opacity: 1, y: 0 }}
 									transition={{ duration: 0.75, delay: 0.34, ease: EASE }}
 									className="glass relative w-full rounded-xl p-5 sm:p-7 lg:p-8"
@@ -180,6 +196,7 @@ export function Hero() {
 													<m.span
 														className="block"
 														initial={{ y: "110%" }}
+														{...enter}
 														animate={{ y: "0%" }}
 														transition={{ duration: 0.8, delay: 0.45, ease: EASE }}
 													>
@@ -191,6 +208,7 @@ export function Hero() {
 													<m.span
 														className="block text-fg/90"
 														initial={{ y: "110%" }}
+														{...enter}
 														animate={{ y: "0%" }}
 														transition={{ duration: 0.8, delay: 0.52, ease: EASE }}
 													>
@@ -201,6 +219,7 @@ export function Hero() {
 
 											<m.p
 												initial={{ opacity: 0, y: 12 }}
+												{...enter}
 												animate={{ opacity: 1, y: 0 }}
 												transition={{ duration: 0.6, delay: 0.6, ease: EASE }}
 												className="mt-5 max-w-sm text-sm leading-relaxed text-muted"
@@ -215,6 +234,7 @@ export function Hero() {
 
 										<m.div
 											initial={{ opacity: 0, y: 14 }}
+											{...enter}
 											animate={{ opacity: 1, y: 0 }}
 											transition={{ duration: 0.6, delay: 0.66, ease: EASE }}
 											className="hidden lg:block"
@@ -269,6 +289,7 @@ export function Hero() {
 
 					<m.div
 						initial={{ opacity: 0, y: 16 }}
+						{...enter}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.55, delay: 0.65, ease: EASE }}
 						className="panel flex min-h-[84px] items-end justify-between gap-3 rounded-xl p-4 md:p-5"
@@ -288,12 +309,23 @@ export function Hero() {
 						<p className="eyebrow text-muted">
 							Brands &amp; identities I&apos;ve shaped
 						</p>
+						{!reduce && (
+							<button
+								type="button"
+								onClick={() => setMarqueePaused((paused) => !paused)}
+								aria-label="Pause or play the logo marquee"
+								aria-pressed={marqueePaused}
+								className="eyebrow -m-2 p-2 text-muted transition-colors hover:text-fg"
+							>
+								{marqueePaused ? "Play" : "Pause"}
+							</button>
+						)}
 					</div>
 					<div className="relative mt-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
 						<div
 							aria-hidden
 							className="marquee-track flex w-max items-center gap-12 opacity-70"
-							data-paused={!marqueeVisible}
+							data-paused={marqueePaused || !marqueeVisible}
 						>
 							{marquee.map((logo, index) => (
 								<Image
