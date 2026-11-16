@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ArrowUpRight, Monitor, Palette, PenTool } from "lucide-react";
 import { CornerBrackets } from "@/components/ui/CornerBrackets";
 import { Reveal } from "@/components/ui/Reveal";
@@ -27,73 +26,37 @@ export function Services() {
 					/>
 				</Reveal>
 
-				<div className="mt-10 grid gap-3 md:mt-14 md:grid-cols-12 md:gap-4">
+				<div className="mt-10 grid gap-3 md:mt-14 md:grid-cols-3 md:gap-4">
 					{services.map((service, index) => {
 						const Icon = icons[service.icon];
-						const isFeature = index === 0;
 
 						return (
-							<Reveal
-								key={service.id}
-								delay={index * 90}
-								className={
-									isFeature
-										? "md:col-span-7 md:row-span-2"
-										: "md:col-span-5"
-								}
-							>
-								<article
-									className={`panel group relative flex h-full flex-col overflow-hidden rounded-xl p-6 md:p-8 ${
-										isFeature ? "min-h-[320px] md:min-h-[420px]" : "min-h-[180px]"
-									}`}
-								>
+							<Reveal key={service.id} delay={index * 90} className="h-full">
+								<article className="service-card group relative flex h-full flex-col overflow-hidden rounded-xl p-6 md:p-8">
+									<span aria-hidden className="service-card-glow" />
 									<CornerBrackets className="inset-2.5" />
 
 									<div className="relative z-10 flex items-start justify-between gap-4">
-										<span className="flex h-11 w-11 items-center justify-center rounded-md border border-line-strong bg-black/40 text-fg transition-colors duration-300 group-hover:border-accent/60 group-hover:text-accent">
-											<Icon aria-hidden className="h-5 w-5" strokeWidth={1.5} />
+										<span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-line-strong bg-black/40 text-accent transition-colors duration-500 group-hover:border-accent/60 group-hover:bg-accent-soft md:h-14 md:w-14">
+											<Icon aria-hidden className="h-5 w-5 md:h-6 md:w-6" strokeWidth={1.5} />
 										</span>
-										<span className="eyebrow text-muted">
+										<span className="font-mono text-[0.6875rem] leading-none tracking-[0.16em] text-muted tabular-nums">
 											0{index + 1}
 										</span>
 									</div>
 
-									<div className="relative z-10 mt-auto pt-10">
-										<h3 className={isFeature ? "text-[clamp(2rem,3.4vw,3rem)] font-light leading-[1] tracking-[-0.04em]" : "h3"}>
-											{service.title}
-										</h3>
-										<p className="lead mt-3 max-w-sm text-muted">
+									<div className="relative z-10 mt-10 md:mt-12">
+										<h3 className="h3">{service.title}</h3>
+										<p className="lead mt-3 max-w-[36ch] text-muted">
 											{service.description}
 										</p>
 									</div>
-
-									{isFeature ? (
-										<div
-											aria-hidden
-											className="absolute -bottom-10 -right-4 hidden h-[62%] w-[42%] rotate-[4deg] overflow-hidden rounded-lg border border-line-strong bg-black sm:block"
-										>
-											<Image
-												src="/images/me.webp"
-												alt=""
-												width={1024}
-												height={1536}
-												sizes="(min-width: 768px) 260px, 40vw"
-												loading="lazy"
-												className="absolute inset-0 h-full w-full object-cover object-[50%_15%] grayscale"
-											/>
-											<div
-												aria-hidden
-												className="absolute inset-0 bg-[linear-gradient(165deg,#ffa45c,#f16001_35%,#c10801_70%,#000)] mix-blend-multiply"
-											/>
-											<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
-										</div>
-									) : null}
 								</article>
 							</Reveal>
 						);
 					})}
 
-					<Reveal delay={280} className="md:col-span-12">
+					<Reveal delay={280} className="md:col-span-3">
 						<div className="relative overflow-hidden rounded-xl border border-line bg-black">
 							<div aria-hidden className="cta-glow absolute inset-0 opacity-70" />
 							<div className="relative z-10 flex flex-col gap-6 p-6 sm:flex-row sm:items-center sm:justify-between md:p-8">

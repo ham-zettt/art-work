@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/hanken-grotesk";
 import "@fontsource-variable/jetbrains-mono";
 import "./globals.css";
-import { Footer } from "@/components/Footer";
+// import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MotionProvider } from "@/components/MotionProvider";
 import { site } from "@/data/site";
@@ -88,7 +88,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 					<main id="main" className="flex-1">
 						{children}
 					</main>
-					<Footer />
+					{/* <Footer /> */}
 				</MotionProvider>
 				<script
 					type="application/ld+json"

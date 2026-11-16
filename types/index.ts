@@ -54,3 +54,10 @@ export type Service = {
 	description: string;
 	icon: "pen-tool" | "palette" | "monitor";
 };
+
+export type Testimonial = {
+	id: string;
+	quote: string;
+	name: string;
+	role: string;
+};

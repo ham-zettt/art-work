@@ -227,6 +227,67 @@
 		border-color: var(--line-strong);
 	}
 
+	/* Service card: static radial wash, faded in with opacity on hover. */
+	.service-card {
+		background: linear-gradient(
+			180deg,
+			rgba(51, 51, 51, 0.26) 0%,
+			rgba(0, 0, 0, 0.55) 100%
+		);
+		border: 1px solid var(--line);
+		transition:
+			border-color 0.5s var(--ease),
+			transform 0.5s var(--ease);
+	}
+
+	.service-card:hover {
+		border-color: rgba(232, 80, 2, 0.5);
+		transform: translateY(-3px);
+	}
+
+	.service-card-glow {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background:
+			radial-gradient(
+				110% 80% at 50% 0%,
+				rgba(232, 80, 2, 0.3) 0%,
+				transparent 62%
+			),
+			radial-gradient(
+				80% 70% at 50% 118%,
+				rgba(193, 8, 1, 0.2) 0%,
+				transparent 70%
+			);
+		opacity: 0;
+		transition: opacity 0.65s var(--ease);
+	}
+
+	.service-card:hover .service-card-glow {
+		opacity: 1;
+	}
+
+	.service-card::after {
+		content: "";
+		position: absolute;
+		inset-inline: 12%;
+		top: 0;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(241, 96, 1, 0.9),
+			transparent
+		);
+		opacity: 0;
+		transition: opacity 0.5s var(--ease);
+	}
+
+	.service-card:hover::after {
+		opacity: 1;
+	}
+
 	/* Brand gradient artwork */
 	.brand-gradient {
 		background: var(--gradient-brand);
@@ -284,6 +345,33 @@
 				transparent 64%
 			),
 			#050505;
+	}
+
+	/* Color behind the mobile glass card so the blur has something to frost. */
+	.hero-card-glow {
+		background:
+			radial-gradient(
+				85% 110% at 16% 100%,
+				rgba(232, 80, 2, 0.62) 0%,
+				transparent 70%
+			),
+			radial-gradient(
+				70% 90% at 94% 78%,
+				rgba(193, 8, 1, 0.5) 0%,
+				transparent 72%
+			);
+	}
+
+	/* Below lg the card has the glow (not the mesh) behind it, so let more through. */
+	@media (max-width: 1023px) {
+		.glass {
+			background: linear-gradient(
+				145deg,
+				rgba(22, 22, 22, 0.5) 0%,
+				rgba(8, 8, 8, 0.4) 55%,
+				rgba(34, 34, 34, 0.3) 100%
+			);
+		}
 	}
 
 	/* Framed button */
@@ -362,20 +450,38 @@
 /* ----------------------------------------------------------------
    Effects
 ------------------------------------------------------------------- */
-/* Logo tiles: white silhouette by default, real colors on hover */
+/* Logo tiles: monochrome by default, real colors on hover */
 .logo-mono {
-	filter: brightness(0) invert(1);
-	opacity: 0.62;
+	filter: grayscale(1);
 	transition:
 		filter 0.5s var(--ease),
-		opacity 0.5s var(--ease),
 		transform 0.5s var(--ease);
 }
 
-.group:hover .logo-mono,
-.group:focus-visible .logo-mono {
+/* White sheet that slides up behind the mark (hover on desktop, tap preview on mobile) */
+.logo-sheet {
+	transform: translateY(100%);
+	transition: transform 0.5s var(--ease);
+}
+
+@media (hover: hover) {
+	.group:hover .logo-mono {
+		filter: none;
+	}
+
+	.group:hover .logo-sheet {
+		transform: none;
+	}
+}
+
+.group:has(:focus-visible) .logo-mono,
+.group[data-revealed="true"] .logo-mono {
 	filter: none;
-	opacity: 1;
+}
+
+.group:has(:focus-visible) .logo-sheet,
+.group[data-revealed="true"] .logo-sheet {
+	transform: none;
 }
 
 @keyframes marquee {
@@ -421,5 +527,13 @@
 	.marquee-track,
 	.status-bar {
 		animation: none;
+	}
+
+	.service-card:hover {
+		transform: none;
+	}
+
+	.logo-sheet {
+		transition: none;
 	}
 }

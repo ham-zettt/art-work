@@ -1,17 +1,23 @@
 "use client";
 
 import Image from "next/image";
-import { m, useInView, useReducedMotion, useScroll, useTransform } from "motion/react";
+import {
+	m,
+	useInView,
+	useReducedMotion,
+	useScroll,
+	useTransform,
+} from "motion/react";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { CornerBrackets } from "@/components/ui/CornerBrackets";
 import { CountUp } from "@/components/ui/CountUp";
+import { TestimonialCarousel } from "@/components/ui/TestimonialCarousel";
 import { logos } from "@/data/logos";
 import { site } from "@/data/site";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const selectedMarks = logos.slice(0, 4);
 const marquee = [...logos, ...logos];
 
 const actions = [
@@ -37,7 +43,11 @@ function HeroActions({ delay }: { delay: number }) {
 					initial={{ opacity: 0, y: 16 }}
 					{...enter}
 					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.55, delay: delay + index * 0.05, ease: EASE }}
+					transition={{
+						duration: 0.55,
+						delay: delay + index * 0.05,
+						ease: EASE,
+					}}
 					className="btn-frame justify-between md:justify-center"
 				>
 					{action.label}
@@ -54,7 +64,9 @@ function useHeavyMotion() {
 	const [fine, setFine] = useState(false);
 
 	useEffect(() => {
-		const media = window.matchMedia("(pointer: fine) and (min-width: 1024px)");
+		const media = window.matchMedia(
+			"(pointer: fine) and (min-width: 1024px)",
+		);
 		const update = () => setFine(media.matches);
 		update();
 		media.addEventListener("change", update);
@@ -99,7 +111,11 @@ export function Hero() {
 								initial={{ clipPath: "inset(0 0 100% 0)" }}
 								{...enter}
 								animate={{ clipPath: "inset(0 0 0% 0)" }}
-								transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
+								transition={{
+									duration: 2.0,
+									delay: 0.1,
+									ease: EASE,
+								}}
 								className="relative h-[34svh] min-h-[260px] overflow-hidden bg-black sm:h-[46svh] lg:h-auto"
 							>
 								<m.div
@@ -107,7 +123,7 @@ export function Hero() {
 									style={heavy ? { y: photoY } : undefined}
 								>
 									<Image
-										src="/images/me.webp"
+										src="/images/me.jpeg"
 										alt="Ilham Zakaria, logo and brand identity designer"
 										width={1024}
 										height={1536}
@@ -150,7 +166,11 @@ export function Hero() {
 								initial={{ opacity: 0 }}
 								{...enter}
 								animate={{ opacity: 1 }}
-								transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
+								transition={{
+									duration: 0.8,
+									delay: 0.2,
+									ease: EASE,
+								}}
 								className="hero-mesh relative hidden overflow-hidden border-line lg:block lg:border-l"
 							>
 								<span className="eyebrow absolute right-5 top-5 z-10 rounded bg-black/55 px-2 py-1 text-white/90">
@@ -163,18 +183,26 @@ export function Hero() {
 
 							{/* Glass identity card */}
 							<div className="relative z-10 -mt-8 px-3 pb-3 sm:px-5 lg:absolute lg:inset-y-0 lg:right-0 lg:m-0 lg:flex lg:w-[64%] lg:items-center lg:p-8">
+								<span
+									aria-hidden
+									className="hero-card-glow pointer-events-none absolute inset-0 opacity-90 lg:hidden"
+								/>
 								<m.div
 									initial={{ opacity: 0, y: 30 }}
 									{...enter}
 									animate={{ opacity: 1, y: 0 }}
-									transition={{ duration: 0.75, delay: 0.34, ease: EASE }}
+									transition={{
+										duration: 0.75,
+										delay: 0.34,
+										ease: EASE,
+									}}
 									className="glass relative w-full rounded-xl p-5 sm:p-7 lg:p-8"
 								>
 									<CornerBrackets className="inset-2.5" />
 
 									<div className="flex flex-wrap items-center justify-between gap-3">
 										<span className="eyebrow text-muted">
-											Ilham Zakaria
+											Muhammad Ilham Zakaria
 										</span>
 										<span className="flex items-center gap-2 font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-fg/80">
 											<span
@@ -189,30 +217,37 @@ export function Hero() {
 										</span>
 									</div>
 
-									<div className="mt-5 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-8">
+									<div className="mt-5 grid gap-6 lg:grid-cols-[minmax(0,1fr)_248px] lg:items-end lg:gap-4 xl:grid-cols-[minmax(0,1fr)_288px]">
 										<div>
-											<h1 className="text-[clamp(2.9rem,7.2vw,6.4rem)] font-light leading-[0.88] tracking-[-0.05em]">
-												<span className="block overflow-hidden pb-[0.06em]">
+											<h1 className="font-medium text-[clamp(2.9rem,7.2vw,4.4rem)] leading-[0.88] tracking-[-0.07em]">
+												<span className="block pb-[0.06em]">
 													<m.span
 														className="block"
 														initial={{ y: "110%" }}
 														{...enter}
 														animate={{ y: "0%" }}
-														transition={{ duration: 0.8, delay: 0.45, ease: EASE }}
+														transition={{
+															duration: 1.8,
+															delay: 0.45,
+															ease: EASE,
+														}}
 													>
-														Logo &amp;
+														Logo & Brand
 													</m.span>
-												</span>
-												{" "}
-												<span className="block overflow-hidden pb-[0.06em]">
+												</span>{" "}
+												<span className="block pb-[0.06em]">
 													<m.span
 														className="block text-fg/90"
 														initial={{ y: "110%" }}
 														{...enter}
 														animate={{ y: "0%" }}
-														transition={{ duration: 0.8, delay: 0.52, ease: EASE }}
+														transition={{
+															duration: 1.8,
+															delay: 0.52,
+															ease: EASE,
+														}}
 													>
-														identity
+														Designer
 													</m.span>
 												</span>
 											</h1>
@@ -221,7 +256,11 @@ export function Hero() {
 												initial={{ opacity: 0, y: 12 }}
 												{...enter}
 												animate={{ opacity: 1, y: 0 }}
-												transition={{ duration: 0.6, delay: 0.6, ease: EASE }}
+												transition={{
+													duration: 0.6,
+													delay: 0.6,
+													ease: EASE,
+												}}
 												className="mt-5 max-w-sm text-sm leading-relaxed text-muted"
 											>
 												{site.heroSubtext}
@@ -236,28 +275,14 @@ export function Hero() {
 											initial={{ opacity: 0, y: 14 }}
 											{...enter}
 											animate={{ opacity: 1, y: 0 }}
-											transition={{ duration: 0.6, delay: 0.66, ease: EASE }}
-											className="hidden lg:block"
+											transition={{
+												duration: 0.6,
+												delay: 0.66,
+												ease: EASE,
+											}}
+											className="-mx-2 lg:mx-0"
 										>
-											<p className="eyebrow mb-3 text-right text-muted">
-												Selected marks
-											</p>
-											<div className="grid grid-cols-2 gap-2">
-												{selectedMarks.map((logo) => (
-													<span
-														key={logo.id}
-														className="flex h-[76px] w-[76px] items-center justify-center rounded-lg border border-line bg-[#0c0c0c]"
-													>
-														<Image
-															src={logo.image}
-															alt={logo.title}
-															width={76}
-															height={76}
-															className="logo-mono max-h-10 w-auto max-w-12 object-contain"
-														/>
-													</span>
-												))}
-											</div>
+											<TestimonialCarousel />
 										</m.div>
 									</div>
 								</m.div>
@@ -272,7 +297,11 @@ export function Hero() {
 							<m.span
 								aria-hidden
 								animate={{ y: [0, 5, 0] }}
-								transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+								transition={{
+									duration: 1.8,
+									repeat: Infinity,
+									ease: "easeInOut",
+								}}
 								className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30"
 							>
 								<ArrowDown className="h-3.5 w-3.5" />
@@ -294,8 +323,8 @@ export function Hero() {
 						transition={{ duration: 0.55, delay: 0.65, ease: EASE }}
 						className="panel flex min-h-[84px] items-end justify-between gap-3 rounded-xl p-4 md:p-5"
 					>
-						<span className="text-[clamp(1.75rem,3vw,2.5rem)] font-light leading-none tracking-[-0.04em]">
-							<CountUp to={logos.length} delay={0.7} />
+						<span className="text-[clamp(1.45rem,3vw,1.2rem)] my-auto font-light uppercase leading-none tracking-[+0.20em]">
+							25+ Projects Completed
 						</span>
 						<span className="eyebrow max-w-[9ch] text-right leading-relaxed text-muted">
 							Logo marks
@@ -312,7 +341,9 @@ export function Hero() {
 						{!reduce && (
 							<button
 								type="button"
-								onClick={() => setMarqueePaused((paused) => !paused)}
+								onClick={() =>
+									setMarqueePaused((paused) => !paused)
+								}
 								aria-label="Pause or play the logo marquee"
 								aria-pressed={marqueePaused}
 								className="eyebrow -m-2 p-2 text-muted transition-colors hover:text-fg"

@@ -47,7 +47,7 @@ A logo-first designer who delivers the whole identity system: the mark, the guid
 - One brand identity case study currently wired into `data/brands.ts` (ZenHabits), with the others awaiting copy.
 - Portrait imagery at `public/images/me.webp` and `public/images/me.png`; social card at `public/images/og.jpg`.
 - The "20+ projects" stat is approximate and unverified — state it only if confirmed.
-- No testimonials or press exist in the repo.
+- No real testimonials or press exist in the repo. The hero carousel uses sample copy from `data/testimonials.ts`; replace it with approved quotes before publishing.
 
 ## Product Principles
 

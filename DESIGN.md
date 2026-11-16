@@ -95,9 +95,9 @@ thumbnail accents. Never as body text color, never as a small-text background.
 
 | Width | Behavior |
 |---|---|
-| `< 640` | Single column. Hero portrait band `34svh`, mesh hidden, actions inside card as a 2-col row, no stat card, logo grid 1-col. |
-| `640–1023` | Logo grid 2-col, services keep stacked bento. Hero still stacked; portrait `46svh`. |
-| `≥ 1024` | Hero splits `0.72fr / 1fr`; glass card overlays right `64%`; mesh, scroll cue, selected marks, CTA row + one stat card and parallax enabled. Services bento 12-col; logo grid 3-col. |
+| `< 640` | Single column. Hero portrait band `34svh`, mesh hidden, actions inside card as a 2-col row, testimonial carousel below the actions, no stat card, logo grid 1-col. |
+| `640–1023` | Logo grid 2-col, services 3-col. Hero still stacked with testimonials below the actions; portrait `46svh`. |
+| `≥ 1024` | Hero splits `0.72fr / 1fr`; glass card overlays right `64%`; mesh, scroll cue, testimonial carousel, CTA row + one stat card and parallax enabled. Services 3-col; logo grid 3-col. |
 | `≥ 1440` | Container caps; gutters grow only. |
 
 No horizontal scrolling at any width. Wide artwork (marquee) must be clipped by
@@ -110,7 +110,7 @@ No horizontal scrolling at any width. Wide artwork (marquee) must be clipped by
 | Class | Use | Notes |
 |---|---|---|
 | `.panel` | Services cards, stat cards | `#333` @ 22% fill, hairline border, hover to 34% |
-| `.glass` | Hero identity card only | Gradient tint + `backdrop-filter: blur(18px)`; loud but singular |
+| `.glass` | Hero identity card only | Gradient tint + `backdrop-filter: blur(18px)`; loud but singular. Below `lg` a `.hero-card-glow` wash sits behind it so the frost stays visible over black |
 | `.cta-glow` | Contact block | Two radial orange/red glows over `#050505` |
 | `.hero-mesh` | Hero right panel | Radial mesh + one blurred conic ribbon (`filter: blur(40px)`) |
 | `.brand-gradient` | Reserved | Full gradient fill; artwork only |
@@ -142,6 +142,14 @@ icons and keeps the solid contact action.
 Numbered nav links in display type, email, and social buttons. Clip-path
 entrance, focus trapped, `Escape` closes and returns focus, body scroll locked.
 
+**Hero testimonials** — `TestimonialCarousel`: three compact rows in a clipped
+vertical list. Placeholder avatar left, name and role beside it, five accent
+stars top-right, two-line quote below. Middle slot scaled 1.035 and framed in
+accent. Every 2s the list travels down one 76px row with the standard easing,
+the bottom quote exits, and a new one enters above. Stays static with reduced
+motion. Copy lives in `data/testimonials.ts`; swap the avatar when real client
+photos exist.
+
 **Section heading** — `SectionHeading` renders `NN / EYEBROW`, optional
 `(count)`, an `.h2`, and a short muted lead. Numbering: `01` hero/portfolio,
 `02` services, `03` logo, `04` brand identity, `05` contact.
@@ -150,9 +158,11 @@ entrance, focus trapped, `Escape` closes and returns focus, body scroll locked.
 reveals real colors at 1.04 scale. Footer: title + `category · year` + one-line
 description. Display-only; never imply a link.
 
-**Service card** — bento: first card spans 7 cols × 2 rows with a rotated
-duotone portrait; the other two span 5. Icon in a hairline square, mono index,
-title, description. A full-width glow strip closes the section.
+**Service card** — three equal cards. Accent icon in a hairline square at the
+top-left, small mono index at the top-right; title and description sit at the
+bottom of the card. Hover fades in a static orange radial wash, warms the frame
+and icon tile, and lifts the card 3px. A full-width glow strip closes the
+section.
 
 **Case-study card** — split media/copy card linking to a real route. Mono
 `year — client`, display title, tagline, service pills, circular arrow that
@@ -184,6 +194,8 @@ Motion is used for hierarchy, not decoration.
 | Copy / stats | fade + `y: 12–16 → 0`, 0.55–0.6s @ 0.6s |
 | Section reveal | `Reveal`: `y: 26 → 0`, 0.7s, `once`, `margin: -10%` |
 | Hover | CSS only: border → accent, arrow +3px, no layout shift |
+| Service glow | Static radial wash fades in via `opacity`, 0.65s; card lifts 3px |
+| Testimonials | List steps down 76px every 2s, 0.8s `--ease`; enter/exit fade |
 | Marquee | CSS `46s linear infinite`, pauses offscreen and via Pause/Play |
 | Parallax | portrait `0 → 9%`, only `(pointer: fine)` and `≥1024px` |
 
