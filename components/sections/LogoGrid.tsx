@@ -1,44 +1,54 @@
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { CenterColorImage } from "@/components/ui/CenterColorImage";
+import Image from "next/image";
+import { CornerBrackets } from "@/components/ui/CornerBrackets";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { logos } from "@/data/logos";
 
 export function LogoGrid() {
-	const hasFiller = logos.length % 2 === 1;
-
 	return (
 		<section id="logo" className="section">
 			<div className="container-x">
 				<Reveal>
 					<SectionHeading
-						eyebrow="Selected Marks"
+						number="03"
+						eyebrow="Selected marks"
 						title="Logo"
 						count={String(logos.length)}
-						description="A selection of logo marks made for products, studios, and small businesses."
+						description="Marks made for products, studios, and small businesses. Hover to see the colors."
 					/>
 				</Reveal>
 
-				<Reveal className="mt-16">
-					<div className="grid grid-cols-1 border-t border-l border-line sm:grid-cols-3">
-						{logos.map((logo) => (
-							<article
-								key={logo.id}
-								className="group flex flex-col border-r border-b border-line"
-							>
+				<div className="mt-10 grid gap-3 sm:grid-cols-2 md:mt-14 md:gap-4 lg:grid-cols-3">
+					{logos.map((logo, index) => (
+						<Reveal key={logo.id} delay={(index % 3) * 70}>
+							<article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-line bg-[#070707] transition-colors duration-500 hover:border-line-strong">
+								<CornerBrackets className="inset-2.5 opacity-50" />
+
 								<div className="relative aspect-square overflow-hidden">
-									<CenterColorImage
+									<div
+										aria-hidden
+										className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_45%,rgba(51,51,51,0.5),transparent_70%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+									/>
+									<Image
 										src={logo.image}
 										alt={`${logo.title} logo`}
 										fill
-										sizes="(min-width: 640px) 33vw, 100vw"
-										className="object-contain p-20 sm:p-12 md:p-16 lg:p-30 transition-[filter,transform,translate,scale,rotate] duration-500 ease-expo motion-safe:group-hover:scale-[1.05] group-hover:grayscale-0"
+										sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+										loading="lazy"
+										className="logo-mono object-contain p-12 transition-transform duration-500 group-hover:scale-[1.04] md:p-16"
 									/>
+									<span className="absolute left-4 top-4 z-10 font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted">
+										{String(index + 1).padStart(2, "0")}
+									</span>
 								</div>
-								<div className="flex flex-1 flex-col gap-3 border-t border-line p-6 md:min-h-[150px] md:p-8">
+
+								<div className="flex flex-1 flex-col gap-2 border-t border-line p-5 md:p-6">
 									<div className="flex items-start justify-between gap-4">
-										<h3 className="h3">{logo.title}</h3>
+										<h3 className="text-lg font-medium tracking-[-0.02em]">
+											{logo.title}
+										</h3>
 										{logo.category || logo.year ? (
-											<span className="caption whitespace-nowrap text-muted">
+											<span className="whitespace-nowrap font-mono text-[0.625rem] uppercase tracking-[0.14em] text-muted">
 												{[logo.category, logo.year]
 													.filter(Boolean)
 													.join(" · ")}
@@ -50,16 +60,9 @@ export function LogoGrid() {
 									</p>
 								</div>
 							</article>
-						))}
-
-						{hasFiller ? (
-							<div
-								aria-hidden
-								className="hidden border-r border-b border-line bg-bg sm:block"
-							/>
-						) : null}
-					</div>
-				</Reveal>
+						</Reveal>
+					))}
+				</div>
 			</div>
 		</section>
 	);

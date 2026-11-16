@@ -45,8 +45,9 @@ export function Skills() {
 			<div className="container-x">
 				<Reveal>
 					<SectionHeading
+						number="06"
 						eyebrow="Capabilities"
-						title="Skills & Tools"
+						title="Skills & tools"
 						description="The tools I use daily and the disciplines I bring to every brand project."
 					/>
 				</Reveal>

@@ -1,10 +1,19 @@
-import { BrandIdentityGrid } from "@/components/sections/BrandIdentityGrid";
-import { Contact } from "@/components/sections/Contact";
+import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/Hero";
-import { LogoGrid } from "@/components/sections/LogoGrid";
-import { Profile } from "@/components/sections/Profile";
-import { Services } from "@/components/sections/Services";
-import { Skills } from "@/components/sections/Skills";
+
+/* Below-the-fold sections are split into their own chunks. */
+const Services = dynamic(() =>
+	import("@/components/sections/Services").then((mod) => mod.Services),
+);
+const LogoGrid = dynamic(() =>
+	import("@/components/sections/LogoGrid").then((mod) => mod.LogoGrid),
+);
+const BrandIdentityGrid = dynamic(() =>
+	import("@/components/sections/BrandIdentityGrid").then((mod) => mod.BrandIdentityGrid),
+);
+const Contact = dynamic(() =>
+	import("@/components/sections/Contact").then((mod) => mod.Contact),
+);
 
 export default function Home() {
 	return (

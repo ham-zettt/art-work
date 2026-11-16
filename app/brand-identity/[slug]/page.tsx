@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { brands, getBrandBySlug } from "@/data/brands";
+import { CornerBrackets } from "@/components/ui/CornerBrackets";
 import { site } from "@/data/site";
 import type { GalleryRatio } from "@/types";
 
@@ -76,7 +77,7 @@ export default async function BrandIdentityPage(
 
 	return (
 		<article>
-			<section className="container-x pt-10 md:pt-16">
+			<section className="container-x pt-28 md:pt-36">
 				<Link
 					href="/#brand-identity"
 					className="eyebrow text-muted transition-colors duration-200 hover:text-fg"
@@ -84,21 +85,33 @@ export default async function BrandIdentityPage(
 					← Back to projects
 				</Link>
 
-				<h1 className="mt-12 max-w-[18ch] text-[clamp(2.5rem,8vw,7rem)] font-medium leading-[0.95] tracking-[-0.05em]">
+				<h1 className="mt-12 max-w-[18ch] text-[clamp(2.5rem,8vw,7rem)] font-light leading-[0.92] tracking-[-0.045em]">
 					{brand.title}
 				</h1>
 				<p className="lead mt-6 max-w-2xl text-muted">
 					{brand.tagline}
 				</p>
+				<div className="mt-10 flex flex-wrap gap-2 border-t border-line pt-6">
+					{brand.services.map((service) => (
+						<span
+							key={service}
+							className="rounded-full border border-line px-3 py-1 font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted"
+						>
+							{service}
+						</span>
+					))}
+				</div>
 			</section>
 
 			<div className="container-x mt-12 md:mt-16">
-				<div className="relative aspect-video overflow-hidden border border-line bg-surface">
+				<div className="relative aspect-video overflow-hidden rounded-xl border border-line bg-surface">
+					<CornerBrackets className="inset-3 z-10" />
 					<Image
 						src={brand.cover}
 						alt={`${brand.title} brand identity cover`}
 						fill
-						priority
+						loading="eager"
+						fetchPriority="high"
 						sizes="100vw"
 						className="object-cover"
 					/>
@@ -106,7 +119,7 @@ export default async function BrandIdentityPage(
 			</div>
 
 			<section className="container-x mt-16">
-				<dl className="grid grid-cols-2 gap-px border border-line bg-line md:grid-cols-4">
+				<dl className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line md:grid-cols-4">
 					{meta.map((item) => (
 						<div key={item.label} className="bg-bg p-6">
 							<dt className="eyebrow text-muted">{item.label}</dt>
@@ -154,7 +167,7 @@ export default async function BrandIdentityPage(
 							}
 						>
 							<div
-								className={`relative overflow-hidden border border-line bg-surface ${
+								className={`relative overflow-hidden rounded-lg border border-line bg-surface ${
 									ratioClass[item.ratio ?? "16:9"]
 								}`}
 							>
