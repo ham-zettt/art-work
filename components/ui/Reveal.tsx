@@ -1,42 +1,29 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { m } from "motion/react";
 
 type RevealProps = {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
+	children: React.ReactNode;
+	className?: string;
+	/** Delay in milliseconds. */
+	delay?: number;
 };
 
-export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.1 },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={`reveal ${visible ? "is-visible" : ""} ${className}`.trim()}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
-    >
-      {children}
-    </div>
-  );
+export function Reveal({ children, className, delay = 0 }: RevealProps) {
+	return (
+		<m.div
+			data-reveal
+			className={className}
+			initial={{ opacity: 0, y: 26 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, margin: "-10%" }}
+			transition={{
+				duration: 0.7,
+				delay: delay / 1000,
+				ease: [0.22, 1, 0.36, 1],
+			}}
+		>
+			{children}
+		</m.div>
+	);
 }
