@@ -82,7 +82,7 @@ export function Contact() {
 												className="group flex min-h-[56px] items-center justify-between gap-4 py-4"
 											>
 												<span className="flex items-baseline gap-4">
-													<span className="eyebrow text-muted">
+													<span aria-hidden className="eyebrow text-muted">
 														{String(index + 1).padStart(2, "0")}
 													</span>
 													<span className="flex items-center gap-3 text-lg tracking-[-0.02em] transition-colors duration-300 group-hover:text-accent">

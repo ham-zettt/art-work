@@ -90,6 +90,12 @@
 		outline-offset: 3px;
 	}
 
+	/* The contact glow eats the accent ring; use fg plus a black separator. */
+	#contact :focus-visible {
+		outline-color: var(--fg);
+		box-shadow: 0 0 0 5px #000;
+	}
+
 	section[id],
 	div[id="top"] {
 		scroll-margin-top: 96px;
