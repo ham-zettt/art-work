@@ -51,7 +51,7 @@ export function Contact() {
 									<span className="eyebrow text-muted">or email</span>
 									<a
 										href={`mailto:${site.email}`}
-										className="inline-flex min-h-[44px] items-center break-words text-lg tracking-[-0.02em] underline decoration-line-strong decoration-1 underline-offset-[5px] transition-colors duration-300 hover:text-accent hover:decoration-accent"
+										className="inline-flex min-h-[56px] items-center break-words text-lg tracking-[-0.02em] underline decoration-line-strong decoration-1 underline-offset-[5px] transition-colors duration-300 hover:text-accent hover:decoration-accent"
 									>
 										{site.email}
 									</a>

@@ -105,7 +105,7 @@ export function Header() {
 							))}
 							<a
 								href="#contact"
-								className="hidden h-11 items-center gap-2 rounded-full bg-fg px-5 font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-black transition-colors duration-300 hover:bg-accent md:inline-flex"
+								className="inline-flex h-11 items-center gap-2 rounded-full bg-fg px-4 font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-black transition-colors duration-300 hover:bg-accent md:px-5"
 							>
 								Hire me
 								<ArrowUpRight aria-hidden className="h-3.5 w-3.5" />
