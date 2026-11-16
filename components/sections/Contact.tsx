@@ -40,7 +40,7 @@ export function Contact() {
 									href={whatsapp.href}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="group mt-3 inline-flex min-h-[56px] flex-wrap items-center gap-x-4 gap-y-2 text-[clamp(1.9rem,5.4vw,3.5rem)] font-light leading-none tracking-[-0.04em] transition-colors duration-300 hover:text-accent"
+									className="group mt-3 inline-flex min-h-[56px] flex-wrap items-center gap-x-4 gap-y-2 text-[clamp(1.9rem,5.4vw,3.5rem)] font-light leading-none tracking-[-0.04em] tabular-nums transition-colors duration-300 hover:text-accent"
 								>
 									<span className="sr-only">WhatsApp: </span>
 									{whatsapp.display}

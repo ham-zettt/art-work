@@ -33,7 +33,7 @@ A logo-first designer who delivers the whole identity system: the mark, the guid
 - Logo and brand identity are the lead offer. Website design is offered but secondary and must not lead the positioning.
 - No CMS, admin, blog, e-commerce, authentication, or language switcher; dark mode is the only theme.
 - Contact happens through email, WhatsApp, and social links — no contact form.
-- Current public facts in code: location Pamekasan, Jawa Timur; availability "Open for projects"; email, WhatsApp, Instagram, and LinkedIn links in `data/site.ts`. Treat these as the working record; confirm before publishing any new claim.
+- Current public facts in code: location Pamekasan, Jawa Timur; availability "Open for projects"; email, WhatsApp, Instagram, and LinkedIn links in `data/site.ts`; the WhatsApp number (+62 819-3937-4447) is published as the primary contact. Treat these as the working record; confirm before publishing any new claim.
 
 ## Brand Commitments
 
