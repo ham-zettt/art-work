@@ -156,7 +156,7 @@ export function Hero() {
 								<span className="eyebrow absolute right-5 top-5 z-10 rounded bg-black/55 px-2 py-1 text-white/90">
 									Portfolio / 01
 								</span>
-								<span className="absolute bottom-5 left-5 z-10 max-w-[16ch] rounded bg-black/55 px-2 py-1 font-mono text-[0.625rem] uppercase leading-relaxed tracking-[0.16em] text-white/85">
+								<span className="absolute bottom-5 left-5 z-10 max-w-[16ch] rounded bg-black/55 px-2 py-1 font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.16em] text-white/85">
 									Marks, systems &amp; type
 								</span>
 							</m.div>
@@ -176,7 +176,7 @@ export function Hero() {
 										<span className="eyebrow text-muted">
 											Ilham Zakaria
 										</span>
-										<span className="flex items-center gap-2 font-mono text-[0.625rem] uppercase tracking-[0.16em] text-fg/80">
+										<span className="flex items-center gap-2 font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-fg/80">
 											<span
 												aria-hidden
 												className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(232,80,2,0.9)]"
@@ -266,7 +266,7 @@ export function Hero() {
 
 						<a
 							href="#services"
-							className="absolute bottom-6 right-6 z-20 hidden items-center gap-3 font-mono text-[0.625rem] uppercase tracking-[0.18em] text-white/60 transition-colors duration-300 hover:text-fg lg:flex"
+							className="absolute bottom-6 right-6 z-20 hidden items-center gap-3 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-white/60 transition-colors duration-300 hover:text-fg lg:flex"
 						>
 							Scroll to explore
 							<m.span

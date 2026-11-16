@@ -356,13 +356,6 @@
 /* ----------------------------------------------------------------
    Effects
 ------------------------------------------------------------------- */
-.gradient-text {
-	background: var(--gradient-brand);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-}
-
 /* Logo tiles: white silhouette by default, real colors on hover */
 .logo-mono {
 	filter: brightness(0) invert(1);
