@@ -11,7 +11,7 @@ import { site } from "@/data/site";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const heroAvatars = logos.slice(0, 3);
+const selectedMarks = logos.slice(0, 4);
 const marquee = [...logos, ...logos];
 
 /** Parallax only on fine pointers, large screens, and when motion is allowed. */
@@ -55,13 +55,13 @@ export function Hero() {
 					>
 						<CornerBrackets className="inset-3" />
 
-						<div className="relative grid lg:min-h-[clamp(580px,80svh,840px)] lg:grid-cols-2">
+						<div className="relative grid lg:min-h-[clamp(580px,80svh,840px)] lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1fr)]">
 							{/* Photo panel with CSS duotone */}
 							<m.figure
 								initial={{ clipPath: "inset(0 0 100% 0)" }}
 								animate={{ clipPath: "inset(0 0 0% 0)" }}
 								transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
-								className="relative h-[42svh] min-h-[300px] overflow-hidden bg-black sm:h-[52svh] lg:h-auto"
+								className="relative h-[34svh] min-h-[260px] overflow-hidden bg-black sm:h-[46svh] lg:h-auto"
 							>
 								<m.div
 									className="absolute inset-x-0 -inset-y-[6%]"
@@ -74,7 +74,7 @@ export function Hero() {
 										height={1536}
 										loading="eager"
 										fetchPriority="high"
-										sizes="(min-width: 1024px) 50vw, 100vw"
+										sizes="(min-width: 1024px) 42vw, 100vw"
 										className="absolute inset-0 h-full w-full object-cover object-[50%_16%] grayscale brightness-[0.82] contrast-[1.14]"
 									/>
 								</m.div>
@@ -122,12 +122,12 @@ export function Hero() {
 							</m.div>
 
 							{/* Glass identity card */}
-							<div className="relative z-10 -mt-8 px-3 pb-3 sm:px-5 lg:absolute lg:inset-0 lg:m-0 lg:flex lg:items-center lg:justify-center lg:p-8">
+							<div className="relative z-10 -mt-8 px-3 pb-3 sm:px-5 lg:absolute lg:inset-y-0 lg:right-0 lg:m-0 lg:flex lg:w-[64%] lg:items-center lg:p-8">
 								<m.div
 									initial={{ opacity: 0, y: 30 }}
 									animate={{ opacity: 1, y: 0 }}
 									transition={{ duration: 0.75, delay: 0.34, ease: EASE }}
-									className="glass relative w-full rounded-xl p-5 sm:p-7 lg:max-w-[880px] lg:p-8"
+									className="glass relative w-full rounded-xl p-5 sm:p-7 lg:p-8"
 								>
 									<CornerBrackets className="inset-2.5" />
 
@@ -148,7 +148,7 @@ export function Hero() {
 										</span>
 									</div>
 
-									<div className="mt-5 grid gap-6 md:grid-cols-[1fr_auto] md:items-end md:gap-8">
+									<div className="mt-5 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-8">
 										<div>
 											<h1 className="text-[clamp(2.9rem,7.2vw,6.4rem)] font-light leading-[0.88] tracking-[-0.05em]">
 												<span className="block overflow-hidden pb-[0.06em]">
@@ -189,33 +189,27 @@ export function Hero() {
 											initial={{ opacity: 0, y: 14 }}
 											animate={{ opacity: 1, y: 0 }}
 											transition={{ duration: 0.6, delay: 0.66, ease: EASE }}
-											className="flex items-center gap-4 border-t border-line pt-4 md:max-w-[210px] md:flex-col md:items-start md:border-l md:border-t-0 md:pl-6 md:pt-0"
+											className="hidden lg:block"
 										>
-											<div className="flex -space-x-2.5">
-												{heroAvatars.map((logo) => (
+											<p className="eyebrow mb-3 text-right text-muted">
+												Selected marks
+											</p>
+											<div className="grid grid-cols-2 gap-2">
+												{selectedMarks.map((logo) => (
 													<span
 														key={logo.id}
-														className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-line-strong bg-[#0c0c0c]"
+														className="flex h-[76px] w-[76px] items-center justify-center rounded-lg border border-line bg-[#0c0c0c]"
 													>
 														<Image
 															src={logo.image}
 															alt={logo.title}
-															width={36}
-															height={36}
-															className="h-full w-full object-contain p-1.5 logo-mono"
+															width={76}
+															height={76}
+															className="logo-mono max-h-10 w-auto max-w-12 object-contain"
 														/>
 													</span>
 												))}
-												<span className="flex h-9 w-9 items-center justify-center rounded-full border border-line-strong bg-[#0c0c0c] font-mono text-[0.5625rem] tracking-wider text-muted">
-													+9
-												</span>
 											</div>
-											<p className="text-xs leading-snug text-muted">
-												<span className="block text-base font-medium text-fg">
-													<CountUp to={20} suffix="+" delay={0.7} />
-												</span>
-												projects delivered
-											</p>
 										</m.div>
 									</div>
 								</m.div>
